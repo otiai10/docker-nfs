@@ -2,7 +2,9 @@ FROM centos:latest
 
 LABEL maintainer="Hiromu OCHIAI<otiai10@gmail.com>"
 
-ARG MOUNTPOINT="/root/mount"
+# Overwrite MOUNTPOINT by using --env at "docker run"
+ENV MOUNTPOINT="/tmp"
+
 RUN mkdir -p ${MOUNTPOINT} && chmod 777 ${MOUNTPOINT}
 
 # Install reequired packages
