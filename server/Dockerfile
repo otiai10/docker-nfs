@@ -31,7 +31,7 @@ RUN mkdir -p /etc/services.d/mountd \
 # Expose ports for NFS
 EXPOSE 111/udp 111/tcp 2049/udp 2049/tcp
 
-RUN echo "${MOUNTPOINT} *(rw,fsid=0,root_squash,no_subtree_check,insecure)" >> /etc/exports
+RUN echo "${MOUNTPOINT} *(ro,fsid=0,root_squash,no_subtree_check,insecure)" >> /etc/exports
 RUN ls -la /etc/services.d/mountd
 
 # Kick init script of s6-overlay
